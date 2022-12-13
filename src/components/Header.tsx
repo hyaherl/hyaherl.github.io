@@ -1,36 +1,26 @@
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Box } from '@mui/system';
+import styled from 'styled-components';
+import Button from './Button';
 
-type propTypes = {
-  handleDrawerToggle: () => void;
+interface propTypes {
   navItems: string[];
-};
+}
 
-export default function Header({ handleDrawerToggle, navItems }: propTypes) {
+const StyledHeader = styled.div`
+  margin: 0;
+  height: 60px;
+  background-color: #1a0b2e;
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+export default function Header({ navItems }: propTypes) {
   return (
-    <AppBar component="nav" color={'inherit'}>
-      <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          edge="start"
-          onClick={handleDrawerToggle}
-          sx={{ mr: 2, display: { sm: 'none' } }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-          MUI
-        </Typography>
-        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-          {navItems.map(item => (
-            <Button key={item} sx={{ color: '#000' }}>
-              {item}
-            </Button>
-          ))}
-        </Box>
-      </Toolbar>
-    </AppBar>
+    <StyledHeader>
+      {navItems.map(item => (
+        <Button key={item} color={'white'} backgroundColor={'transparent'}>
+          {item}
+        </Button>
+      ))}
+    </StyledHeader>
   );
 }

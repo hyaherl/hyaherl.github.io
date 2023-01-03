@@ -3,5 +3,5 @@ https://hyaherl.github.io/
 
 * Framework : React
 * Language : Typescript
-* Style : Styled Components
+* Style : Material UI
 * Build : create-react-app

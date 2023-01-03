@@ -1,37 +1,22 @@
-import * as React from 'react';
-import Container from '../components/Container';
-import Grid from '../components/Grid';
-import Header from '../components/Header';
-import Page from '../components/Page';
-
-const navItems = ['Home', 'About', 'Contact'];
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Info from '../components/Info';
+import Main from '../components/Main';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  });
+
   return (
-    <Container backgroundColor={'#11071F'}>
-      <Header navItems={navItems} />
-      <Page>
-        <Grid container>
-          <Grid item col={6}>
-            1
-          </Grid>
-          <Grid item col={6}>
-            2
-          </Grid>
-          <Grid item col={3}>
-            2
-          </Grid>
-          <Grid item col={3}>
-            2
-          </Grid>
-          <Grid item col={3}>
-            2
-          </Grid>
-          <Grid item col={3}>
-            2
-          </Grid>
-        </Grid>
-      </Page>
-    </Container>
+    <Box bgcolor={'#11071F'} height={'100vh'} color={'white'} style={{ height: '100%' }}>
+      <Container>
+        <Main />
+        <Info />
+      </Container>
+    </Box>
   );
 }
